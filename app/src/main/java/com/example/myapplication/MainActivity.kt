@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         binding.one.setOnDragListener(dragListener)
         binding.two.setOnDragListener(dragListener)
         binding.three.setOnDragListener(dragListener)
+        val inflated23: View
         var child: View
         var inflatedView: View
         var inflatedView2: View
