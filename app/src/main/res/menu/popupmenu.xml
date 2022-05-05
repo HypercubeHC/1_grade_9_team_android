@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/variable"
+        android:title="Блок переменных" />
+    <item
+        android:id="@+id/assign"
+        android:title="Блок присваивания" />
+    <item
+        android:id="@+id/arithmetic"
+        android:title="Блок арифметических операций" />
+    <item
+        android:id="@+id/assign_test"
+        android:title="Создать блок присваивания" />
+    <item
+        android:id="@+id/create_lay"
+        android:title="Создать новый слой" />
+</menu>
