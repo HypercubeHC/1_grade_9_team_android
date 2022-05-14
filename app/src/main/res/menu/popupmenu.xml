@@ -7,12 +7,12 @@
         android:id="@+id/assign"
         android:title="Блок присваивания" />
     <item
-        android:id="@+id/arithmetic"
-        android:title="Блок арифметических операций" />
+        android:id="@+id/constif"
+        android:title="If (...) ->" />
     <item
-        android:id="@+id/assign_test"
-        android:title="Создать блок присваивания" />
+        android:id="@+id/printf"
+        android:title="Вывод переменных" />
     <item
-        android:id="@+id/create_lay"
-        android:title="Создать новый слой" />
+        android:id="@+id/scanf"
+        android:title="Ввод переменных" />
 </menu>
