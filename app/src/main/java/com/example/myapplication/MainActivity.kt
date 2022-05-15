@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
+
         binding.main.setOnDragListener(dragListener)
         val popupMenu2 = PopupMenu(this, binding.button)
         val listEdit: MutableList<EditText> = mutableListOf()
