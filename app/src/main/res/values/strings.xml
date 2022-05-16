@@ -4,4 +4,7 @@
     <string name="less"> &lt;</string>
     <string name="moreequal">&gt;=</string>
     <string name="lessequal"> &lt;=</string>
+    <string name="create_button_description">Создать</string>
+    <string name="play_button_description">Play</string>
+    <string name="canvas_description">Canvas</string>
 </resources>
