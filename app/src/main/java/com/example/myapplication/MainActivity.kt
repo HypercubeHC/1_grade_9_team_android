@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.annotation.SuppressLint
 import android.content.ClipData
 import android.content.ClipDescription
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -197,10 +198,14 @@ class MainActivity : AppCompatActivity() {
             val layout: LinearLayout = binding.main
             val count = layout.childCount
             var v: View?
+            listView.clear() //clear list before filling it to prevent interpreting previous config
             for (i in 0 until count) {
                 v = layout.getChildAt(i)
                 listView.add(v)
             }
+            // switch to console activity and start it
+            val consoleIntent = Intent(this, RuntimeConsole::class.java)
+            startActivity(consoleIntent)
             /*
                 Log.d("Child's id: ", v.id.toString())
                 if (v.id == 2131230815) {
@@ -218,9 +223,14 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }*/
-            val start = interpreter()
+            val BGInterpreter = Interpreter(listView)
+            BGInterpreter.execute()
+            /*
+            these lines are replaced with background interpreter (see above)
+            val start = Interpreter()
             start.start_program(listView)
             start.debug()
+            */
         }
     }
     private val dragListener =

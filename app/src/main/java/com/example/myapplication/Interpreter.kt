@@ -1,20 +1,21 @@
 package com.example.myapplication
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
-import java.util.ArrayDeque
+import com.jraska.console.Console
+import android.os.AsyncTask
+import java.util.*
 
-class interpreter {
+class Interpreter(private val userCode: MutableList<View> = mutableListOf()) : AsyncTask<Any, Void, Void>() {
     private var variables = mutableSetOf<String>()
     private var valuesOfVariables = mutableMapOf<String, Double>()
 
     fun debug() {
         for(variable in valuesOfVariables){
-            Log.d("Debug","${variable.key} - ${variable.value}")
+            Console.writeLine("Debug ${variable.key} - ${variable.value}")
         }
     }
 
@@ -24,16 +25,23 @@ class interpreter {
         }
     }
 
+    //method for ASYNCHRONOUS code execution to provide real-time console interaction
+    override fun doInBackground(vararg params: Any?): Void? {
+        start_program(userCode)
+        debug()
+        return null
+    }
+
     @SuppressLint("CutPasteId")
     private fun implement(view: View) {
         when(view.id){
             1 -> {
                 val edit: EditText = view.findViewById(R.id.editText2)
                 val string: String = edit.text.toString().filter { !it.isWhitespace() }
-                Log.d("String", string)
+                Console.writeLine("String $string")
                 val list_variables = Regex("[a-z]").findAll(string)
                 list_variables.forEach { variable ->
-                    Log.d("variable: ", variable.value)
+                    Console.writeLine("variable: ${variable.value}")
                     valuesOfVariables[variable.value] = 0.0
                 }
             }

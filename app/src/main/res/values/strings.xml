@@ -7,4 +7,6 @@
     <string name="create_button_description">Создать</string>
     <string name="play_button_description">Play</string>
     <string name="canvas_description">Canvas</string>
+    <string name="Okay">Okay</string>
+    <string name="clear">Clear</string>
 </resources>
