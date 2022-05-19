@@ -138,6 +138,31 @@ class MainActivity : AppCompatActivity() {
                         view3.popupMenu3.show()
                     }
                 }
+                R.id.constelse -> {
+                    val view6 = block_else(this)
+                    binding.main.addView(view6)
+                    view6.id = 2131230816 //2131230815 if
+                    view6.block2.id = 20
+                    view6.setOnDragListener(dragListener)
+                    view6.setOnClickListener {
+                        for (i in listEdit) {
+                            i.isEnabled = true
+                        }
+                    }
+                    view6.setOnLongClickListener { view ->
+                        for (i in listEdit) {
+                            i.isEnabled = false
+                        }
+                        val clipText = ""
+                        val item = ClipData.Item(clipText)
+                        val mimeTypes = arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN)
+                        val data = ClipData(clipText, mimeTypes, item)
+                        val dragShadowBuilder = View.DragShadowBuilder(view)
+                        view.startDragAndDrop(data, dragShadowBuilder, view, 0)
+                        view.visibility = View.INVISIBLE
+                        true
+                    }
+                }
                 R.id.printf -> {
                     val view4 = block_print(this)
                     view4.id = 4
@@ -258,7 +283,7 @@ class MainActivity : AppCompatActivity() {
                     if (count <= 1) {
                         binding.main.removeView(owner)
                     } else {
-                        if (owner.id == 2131230815) {
+                        if (owner.id == 2131230815 || owner.id == 2131230816) {
                             val params = LinearLayout.LayoutParams(
                                 LinearLayout.LayoutParams.MATCH_PARENT,
                                 (count - 1) * 195
@@ -273,8 +298,8 @@ class MainActivity : AppCompatActivity() {
                     val count2 = destination.childCount
                     Log.d("Id: ", destination.id.toString())
                     Log.d("View Id: ", v.id.toString())
-                    if (destination.id == 2131230815) {
-                        if (v.id == 2131230815) {
+                    if (destination.id == 2131230815 || destination.id == 2131230816) {
+                        if (v.id == 2131230815 || owner.id == 2131230816) {
                             val params =
                                 LinearLayout.LayoutParams(
                                     LinearLayout.LayoutParams.MATCH_PARENT,
@@ -295,7 +320,7 @@ class MainActivity : AppCompatActivity() {
                             destination.layoutParams = params
                         }
                     }
-                    if (destination.id == 2131230815) {
+                    if (destination.id == 2131230815 || destination.id == 2131230816) {
                         destination.background =
                             ContextCompat.getDrawable(this, R.drawable.layout_bg_purple)
                     }
@@ -310,7 +335,7 @@ class MainActivity : AppCompatActivity() {
                         } else {
                             if ((nextChild.top + 97.5 > event.y) && (nextChild.top < event.y)) {
                                 Log.d("Index: ", index.toString())
-                                if (destination.id == 2131230815 && index == 0) {
+                                if ((destination.id == 2131230815 || destination.id == 2131230816) && index == 0) {
                                     destination.addView(v, index + 1)
                                 } else {
                                     destination.addView(v, index)
