@@ -15,4 +15,7 @@
     <item
         android:id="@+id/scanf"
         android:title="Ввод переменных" />
+    <item
+        android:id="@+id/constelse"
+        android:title="Else ->" />
 </menu>

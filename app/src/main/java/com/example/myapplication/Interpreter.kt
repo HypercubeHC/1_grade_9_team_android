@@ -12,6 +12,8 @@ import java.util.*
 class Interpreter(private val userCode: MutableList<View> = mutableListOf()) : AsyncTask<Any, Void, Void>() {
     private var variables = mutableSetOf<String>()
     private var valuesOfVariables = mutableMapOf<String, Double>()
+    private var listArray = mutableMapOf<String, MutableList<Double>>()
+    private var checkout: Int = -1
 
     fun debug() {
         for(variable in valuesOfVariables){
@@ -61,6 +63,16 @@ class Interpreter(private val userCode: MutableList<View> = mutableListOf()) : A
                 runThroughIf(view as ViewGroup)
             }
 
+            2131230816 -> {
+                if(checkout == 1) {
+                    checkout = -1
+                    for (index in 1 until (view as ViewGroup).childCount) {
+                        val nextChild = view.getChildAt(index)
+                        implement(nextChild)
+                    }
+                }
+            }
+
             /*4 -> {
 
             }
@@ -85,6 +97,8 @@ class Interpreter(private val userCode: MutableList<View> = mutableListOf()) : A
                         val nextChild = view.getChildAt(index)
                         implement(nextChild)
                     }
+                } else {
+                    checkout = 1
                 }
             }
             "!=" -> {
@@ -93,6 +107,8 @@ class Interpreter(private val userCode: MutableList<View> = mutableListOf()) : A
                         val nextChild = view.getChildAt(index)
                         implement(nextChild)
                     }
+                } else {
+                    checkout = 1
                 }
             }
             ">" -> {
@@ -101,6 +117,8 @@ class Interpreter(private val userCode: MutableList<View> = mutableListOf()) : A
                         val nextChild = view.getChildAt(index)
                         implement(nextChild)
                     }
+                } else {
+                    checkout = 1
                 }
             }
             "<" -> {
@@ -109,6 +127,8 @@ class Interpreter(private val userCode: MutableList<View> = mutableListOf()) : A
                         val nextChild = view.getChildAt(index)
                         implement(nextChild)
                     }
+                } else {
+                    checkout = 1
                 }
             }
             ">=" -> {
@@ -117,6 +137,8 @@ class Interpreter(private val userCode: MutableList<View> = mutableListOf()) : A
                         val nextChild = view.getChildAt(index)
                         implement(nextChild)
                     }
+                } else {
+                    checkout = 1
                 }
             }
             "<=" -> {
@@ -125,6 +147,8 @@ class Interpreter(private val userCode: MutableList<View> = mutableListOf()) : A
                         val nextChild = view.getChildAt(index)
                         implement(nextChild)
                     }
+                } else {
+                    checkout = 1
                 }
             }
         }
