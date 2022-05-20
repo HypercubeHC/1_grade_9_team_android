@@ -10,13 +10,12 @@ import android.widget.PopupMenu
 import android.widget.TextView
 import android.widget.Toast
 
-open class block_if_else @JvmOverloads constructor(
+open class BlockIf @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null
 ) : LinearLayout(context, attrs) {
-    private val view = LayoutInflater.from(context).inflate(R.layout.block_if_else, this, true)
-    val block: View = view.findViewById(R.id.block_if_else_parent)
-    val block2: View = view.findViewById(R.id.block_else_if)
+    private val view = LayoutInflater.from(context).inflate(R.layout.block_if, this, true)
+    val block: View = view.findViewById(R.id.block_if_parent)
     val btn2: TextView = view.findViewById(R.id.select_comp)
     val popupMenu3: PopupMenu = PopupMenu(context, btn2)
 }

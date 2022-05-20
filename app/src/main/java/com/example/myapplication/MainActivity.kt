@@ -75,7 +75,7 @@ class MainActivity : AppCompatActivity() {
         popupMenu2.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.variable -> {
-                    val view1 = block_initialization(this)
+                    val view1 = BlockInitialization(this)
                     view1.id = 1
                     binding.main.addView(view1)
                     val edit: EditText = view1.findViewById(R.id.editText2)
@@ -100,7 +100,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
                 R.id.assign -> {
-                    val view2 = block_assign(this)
+                    val view2 = BlockAssigns(this)
                     view2.id = 2
                     binding.main.addView(view2)
                     val edit: EditText = view2.findViewById(R.id.editText2)
@@ -127,33 +127,14 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
                 R.id.constif -> {
-                    val view3 = block_if(this)
+                    val view3 = BlockIf(this)
                     binding.main.addView(view3)
                     view3.id = 2131230815
                     view3.block.id = 10
                     view3.setOnDragListener(dragListener)
                     view3.popupMenu3.inflate(R.menu.popup_menu_comparisons)
                     view3.popupMenu3.setOnMenuItemClickListener { menu ->
-                        when (menu.itemId) {
-                            R.id.more -> {
-                                view3.btn2.text = menu.title
-                            }
-                            R.id.less -> {
-                                view3.btn2.text = menu.title
-                            }
-                            R.id.notequally -> {
-                                view3.btn2.text = menu.title
-                            }
-                            R.id.equally -> {
-                                view3.btn2.text = menu.title
-                            }
-                            R.id.moreequal -> {
-                                view3.btn2.text = menu.title
-                            }
-                            R.id.lessequal -> {
-                                view3.btn2.text = menu.title
-                            }
-                        }
+                        view3.btn2.text = menu.title
                         false
                     }
                     val edit1: EditText = view3.findViewById(R.id.editText1)
@@ -183,34 +164,28 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
                 R.id.constelse -> {
-                    val view6 = block_if_else(this)
+                    val view6 = BlockIfElse(this)
+                    val inflatedView = LayoutInflater.from(this).inflate(R.layout.block_else, view6, false)
+                    //val inflatedView = View.inflate(this, R.id.block_else, null)
+                    inflatedView.id = 20
+                    view6.addView(inflatedView)
+                    val params =
+                        LinearLayout.LayoutParams(
+                            LinearLayout.LayoutParams.MATCH_PARENT,
+                            (view6 as ViewGroup).childCount * 195
+                        ).apply {
+                            gravity = Gravity.CENTER
+                        }
+                    view6.orientation = LinearLayout.VERTICAL
+                    view6.layoutParams = params
                     binding.main.addView(view6)
+                    Log.d("count", (view6 as ViewGroup).childCount.toString())
                     view6.id = 2131230816
                     view6.block.id = 10
-                    view6.block2.id = 20
                     view6.setOnDragListener(dragListener)
                     view6.popupMenu3.inflate(R.menu.popup_menu_comparisons)
                     view6.popupMenu3.setOnMenuItemClickListener { menu ->
-                        when (menu.itemId) {
-                            R.id.more -> {
-                                view6.btn2.text = menu.title
-                            }
-                            R.id.less -> {
-                                view6.btn2.text = menu.title
-                            }
-                            R.id.notequally -> {
-                                view6.btn2.text = menu.title
-                            }
-                            R.id.equally -> {
-                                view6.btn2.text = menu.title
-                            }
-                            R.id.moreequal -> {
-                                view6.btn2.text = menu.title
-                            }
-                            R.id.lessequal -> {
-                                view6.btn2.text = menu.title
-                            }
-                        }
+                        view6.btn2.text = menu.title
                         false
                     }
                     val edit1: EditText = view6.findViewById(R.id.editText1)
@@ -265,7 +240,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
                 R.id.scanf -> {
-                    val view5 = block_scan(this)
+                    val view5 = BlockScan(this)
                     view5.id = 5
                     binding.main.addView(view5)
                     val edit: EditText = view5.findViewById(R.id.editText5)
@@ -290,33 +265,14 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
                 R.id.constwhile -> {
-                    val view7 = block_while(this)
+                    val view7 = BlockWhile(this)
                     binding.main.addView(view7)
                     view7.id = 2131230817
                     view7.block3.id = 20
                     view7.setOnDragListener(dragListener)
                     view7.popupMenu3.inflate(R.menu.popup_menu_comparisons)
                     view7.popupMenu3.setOnMenuItemClickListener { menu ->
-                        when (menu.itemId) {
-                            R.id.more -> {
-                                view7.btn2.text = menu.title
-                            }
-                            R.id.less -> {
-                                view7.btn2.text = menu.title
-                            }
-                            R.id.notequally -> {
-                                view7.btn2.text = menu.title
-                            }
-                            R.id.equally -> {
-                                view7.btn2.text = menu.title
-                            }
-                            R.id.moreequal -> {
-                                view7.btn2.text = menu.title
-                            }
-                            R.id.lessequal -> {
-                                view7.btn2.text = menu.title
-                            }
-                        }
+                        view7.btn2.text = menu.title
                         false
                     }
                     val edit1: EditText = view7.findViewById(R.id.editText6)
@@ -345,6 +301,33 @@ class MainActivity : AppCompatActivity() {
                         view7.popupMenu3.show()
                     }
                 }
+                R.id.block_array -> {
+                    val view8 = BlockArray(this)
+                    view8.id = 6
+                    binding.main.addView(view8)
+                    val edit: EditText = view8.findViewById(R.id.editText2)
+                    val edit2: EditText = view8.findViewById(R.id.editText1)
+                    listEdit.add(edit)
+                    listEdit.add(edit2)
+                    view8.setOnClickListener {
+                        for (i in listEdit) {
+                            i.isEnabled = true
+                        }
+                    }
+                    view8.setOnLongClickListener { view ->
+                        for (i in listEdit) {
+                            i.isEnabled = false
+                        }
+                        val clipText = ""
+                        val item = ClipData.Item(clipText)
+                        val mimeTypes = arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN)
+                        val data = ClipData(clipText, mimeTypes, item)
+                        val dragShadowBuilder = View.DragShadowBuilder(view)
+                        view.startDragAndDrop(data, dragShadowBuilder, view, 0)
+                        view.visibility = View.INVISIBLE
+                        true
+                    }
+                }
             }
             false
         }
@@ -363,23 +346,6 @@ class MainActivity : AppCompatActivity() {
             // switch to console activity and start it
             val consoleIntent = Intent(this, RuntimeConsole::class.java)
             startActivity(consoleIntent)
-            /*
-                Log.d("Child's id: ", v.id.toString())
-                if (v.id == 2131230815) {
-                    Log.d("Child's of If:", ": ")
-                    for (index in 0 until (v as ViewGroup).childCount) {
-                        val nextChild = v.getChildAt(index)
-                        Log.d("If child's id: ", nextChild.id.toString())
-                        if (nextChild.id == 2131230815) {
-                            Log.d("Child's of If2:", ": ")
-                            for (iteration in 0 until (nextChild as ViewGroup).childCount) {
-                                val nextChild2 = nextChild.getChildAt(iteration)
-                                Log.d("If child's id2: ", nextChild2.id.toString())
-                            }
-                        }
-                    }
-                }
-            }*/
             val BGInterpreter = Interpreter(listView)
             BGInterpreter.execute()
             /*
@@ -432,6 +398,7 @@ class MainActivity : AppCompatActivity() {
                     Log.d("View Id: ", v.id.toString())
                     if (destination.id == 2131230815 || destination.id == 2131230816 || destination.id == 2131230817) {
                         if (v.id == 2131230815 || v.id == 2131230816 || v.id == 2131230817) {
+                            Log.d("count2 ", count2.toString())
                             val params =
                                 LinearLayout.LayoutParams(
                                     LinearLayout.LayoutParams.MATCH_PARENT,
@@ -442,7 +409,8 @@ class MainActivity : AppCompatActivity() {
                             destination.orientation = LinearLayout.VERTICAL
                             destination.layoutParams = params
                         } else {
-                            val params = LinearLayout.LayoutParams(
+                            val params =
+                                LinearLayout.LayoutParams(
                                 LinearLayout.LayoutParams.MATCH_PARENT,
                                 count2 * 195 + v.height
                             ).apply {
