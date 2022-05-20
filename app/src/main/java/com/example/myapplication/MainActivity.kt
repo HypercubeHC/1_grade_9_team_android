@@ -183,11 +183,40 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
                 R.id.constelse -> {
-                    val view6 = block_else(this)
+                    val view6 = block_if_else(this)
                     binding.main.addView(view6)
-                    view6.id = 2131230816 //2131230815 if
+                    view6.id = 2131230816
+                    view6.block.id = 10
                     view6.block2.id = 20
                     view6.setOnDragListener(dragListener)
+                    view6.popupMenu3.inflate(R.menu.popup_menu_comparisons)
+                    view6.popupMenu3.setOnMenuItemClickListener { menu ->
+                        when (menu.itemId) {
+                            R.id.more -> {
+                                view6.btn2.text = menu.title
+                            }
+                            R.id.less -> {
+                                view6.btn2.text = menu.title
+                            }
+                            R.id.notequally -> {
+                                view6.btn2.text = menu.title
+                            }
+                            R.id.equally -> {
+                                view6.btn2.text = menu.title
+                            }
+                            R.id.moreequal -> {
+                                view6.btn2.text = menu.title
+                            }
+                            R.id.lessequal -> {
+                                view6.btn2.text = menu.title
+                            }
+                        }
+                        false
+                    }
+                    val edit1: EditText = view6.findViewById(R.id.editText1)
+                    val edit2: EditText = view6.findViewById(R.id.editText2)
+                    listEdit.add(edit1)
+                    listEdit.add(edit2)
                     view6.setOnClickListener {
                         for (i in listEdit) {
                             i.isEnabled = true
@@ -205,6 +234,9 @@ class MainActivity : AppCompatActivity() {
                         view.startDragAndDrop(data, dragShadowBuilder, view, 0)
                         view.visibility = View.INVISIBLE
                         true
+                    }
+                    view6.btn2.setOnClickListener {
+                        view6.popupMenu3.show()
                     }
                 }
                 R.id.printf -> {
@@ -255,6 +287,62 @@ class MainActivity : AppCompatActivity() {
                         view.startDragAndDrop(data, dragShadowBuilder, view, 0)
                         view.visibility = View.INVISIBLE
                         true
+                    }
+                }
+                R.id.constwhile -> {
+                    val view7 = block_while(this)
+                    binding.main.addView(view7)
+                    view7.id = 2131230817
+                    view7.block3.id = 20
+                    view7.setOnDragListener(dragListener)
+                    view7.popupMenu3.inflate(R.menu.popup_menu_comparisons)
+                    view7.popupMenu3.setOnMenuItemClickListener { menu ->
+                        when (menu.itemId) {
+                            R.id.more -> {
+                                view7.btn2.text = menu.title
+                            }
+                            R.id.less -> {
+                                view7.btn2.text = menu.title
+                            }
+                            R.id.notequally -> {
+                                view7.btn2.text = menu.title
+                            }
+                            R.id.equally -> {
+                                view7.btn2.text = menu.title
+                            }
+                            R.id.moreequal -> {
+                                view7.btn2.text = menu.title
+                            }
+                            R.id.lessequal -> {
+                                view7.btn2.text = menu.title
+                            }
+                        }
+                        false
+                    }
+                    val edit1: EditText = view7.findViewById(R.id.editText6)
+                    val edit2: EditText = view7.findViewById(R.id.editText7)
+                    listEdit.add(edit1)
+                    listEdit.add(edit2)
+                    view7.setOnClickListener {
+                        for (i in listEdit) {
+                            i.isEnabled = true
+                        }
+                    }
+                    view7.setOnLongClickListener { view ->
+                        for (i in listEdit) {
+                            i.isEnabled = false
+                        }
+                        val clipText = ""
+                        val item = ClipData.Item(clipText)
+                        val mimeTypes = arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN)
+                        val data = ClipData(clipText, mimeTypes, item)
+                        val dragShadowBuilder = View.DragShadowBuilder(view)
+                        view.startDragAndDrop(data, dragShadowBuilder, view, 0)
+                        view.visibility = View.INVISIBLE
+                        true
+                    }
+                    view7.btn2.setOnClickListener {
+                        view7.popupMenu3.show()
                     }
                 }
             }
@@ -327,7 +415,7 @@ class MainActivity : AppCompatActivity() {
                     if (count <= 1) {
                         binding.main.removeView(owner)
                     } else {
-                        if (owner.id == 2131230815 || owner.id == 2131230816) {
+                        if (owner.id == 2131230815 || owner.id == 2131230816 || owner.id == 2131230817) {
                             val params = LinearLayout.LayoutParams(
                                 LinearLayout.LayoutParams.MATCH_PARENT,
                                 (count - 1) * 195
@@ -342,8 +430,8 @@ class MainActivity : AppCompatActivity() {
                     val count2 = destination.childCount
                     Log.d("Id: ", destination.id.toString())
                     Log.d("View Id: ", v.id.toString())
-                    if (destination.id == 2131230815 || destination.id == 2131230816) {
-                        if (v.id == 2131230815 || owner.id == 2131230816) {
+                    if (destination.id == 2131230815 || destination.id == 2131230816 || destination.id == 2131230817) {
+                        if (v.id == 2131230815 || v.id == 2131230816 || v.id == 2131230817) {
                             val params =
                                 LinearLayout.LayoutParams(
                                     LinearLayout.LayoutParams.MATCH_PARENT,
@@ -364,7 +452,7 @@ class MainActivity : AppCompatActivity() {
                             destination.layoutParams = params
                         }
                     }
-                    if (destination.id == 2131230815 || destination.id == 2131230816) {
+                    if (destination.id == 2131230815 || destination.id == 2131230816 || destination.id == 2131230817) {
                         destination.background =
                             ContextCompat.getDrawable(this, R.drawable.layout_bg_purple)
                     }
@@ -379,7 +467,7 @@ class MainActivity : AppCompatActivity() {
                         } else {
                             if ((nextChild.top + 97.5 > event.y) && (nextChild.top < event.y)) {
                                 Log.d("Index: ", index.toString())
-                                if ((destination.id == 2131230815 || destination.id == 2131230816) && index == 0) {
+                                if ((destination.id == 2131230815 || destination.id == 2131230816 || destination.id == 2131230817) && index == 0) {
                                     destination.addView(v, index + 1)
                                 } else {
                                     destination.addView(v, index)

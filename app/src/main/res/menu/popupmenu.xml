@@ -17,5 +17,8 @@
         android:title="Ввод переменных" />
     <item
         android:id="@+id/constelse"
-        android:title="Else ->" />
+        android:title="If (...) -> Else ->" />
+    <item
+        android:id="@+id/constwhile"
+        android:title="While (...) -> {...}"/>
 </menu>

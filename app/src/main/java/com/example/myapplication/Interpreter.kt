@@ -30,7 +30,7 @@ class Interpreter(private val userCode: MutableList<View> = mutableListOf()) : A
     //method for ASYNCHRONOUS code execution to provide real-time console interaction
     override fun doInBackground(vararg params: Any?): Void? {
         start_program(userCode)
-        debug()
+        //debug()
         return null
     }
 
@@ -64,26 +64,29 @@ class Interpreter(private val userCode: MutableList<View> = mutableListOf()) : A
             }
 
             2131230816 -> {
-                if(checkout == 1) {
-                    checkout = -1
-                    for (index in 1 until (view as ViewGroup).childCount) {
-                        val nextChild = view.getChildAt(index)
-                        implement(nextChild)
-                    }
+                runThroughIfElse(view as ViewGroup)
+            }
+
+            2131230817 -> {
+                runThroughWhile(view as ViewGroup)
+            }
+
+            4 -> {
+                val edit: EditText = view.findViewById(R.id.editText4)
+                val string: String = edit.text.toString().filter { !it.isWhitespace() }
+                val list_variables = Regex("[a-z]").findAll(string)
+                list_variables.forEach { variable ->
+                    Console.writeLine("Debug ${variable.value} - ${valuesOfVariables[variable.value]}")
                 }
             }
 
-            /*4 -> {
-
-            }
-
-            5 -> {
+            /*5 -> {
 
             }*/
         }
     }
 
-    private fun runThroughIf(view: ViewGroup) {
+    private fun runThroughIfElse(view: ViewGroup) {
         val blockOfCondition: View = view.getChildAt(0)
         val edit: EditText = blockOfCondition.findViewById(R.id.editText1)
         val edit2: EditText = blockOfCondition.findViewById(R.id.editText2)
@@ -149,6 +152,129 @@ class Interpreter(private val userCode: MutableList<View> = mutableListOf()) : A
                     }
                 } else {
                     checkout = 1
+                }
+            }
+        }
+    }
+
+    private fun runThroughWhile(view: ViewGroup) {
+        val blockOfCondition: View = view.getChildAt(0)
+        val edit: EditText = blockOfCondition.findViewById(R.id.editText6)
+        val edit2: EditText = blockOfCondition.findViewById(R.id.editText7)
+        val condition: TextView = blockOfCondition.findViewById(R.id.select_comp)
+        edit.text.toString().filter { !it.isWhitespace() }
+        edit2.text.toString().filter { !it.isWhitespace() }
+        when(condition.text) {
+            "==" -> {
+                while(calc(edit.text.toString()) == calc(edit2.text.toString())) {
+                    for (index in 1 until view .childCount) {
+                        val nextChild = view.getChildAt(index)
+                        implement(nextChild)
+                    }
+                }
+            }
+            "!=" -> {
+                while(calc(edit.text.toString()) != calc(edit2.text.toString())) {
+                    for (index in 1 until view .childCount) {
+                        val nextChild = view.getChildAt(index)
+                        implement(nextChild)
+                    }
+                }
+            }
+            ">" -> {
+                while(calc(edit.text.toString())!! > calc(edit2.text.toString())!!) {
+                    for (index in 1 until view .childCount) {
+                        val nextChild = view.getChildAt(index)
+                        implement(nextChild)
+                    }
+                }
+            }
+            "<" -> {
+                while(calc(edit.text.toString())!! < calc(edit2.text.toString())!!) {
+                    for (index in 1 until view .childCount) {
+                        val nextChild = view.getChildAt(index)
+                        implement(nextChild)
+                    }
+                }
+            }
+            ">=" -> {
+                while(calc(edit.text.toString())!! >= calc(edit2.text.toString())!!) {
+                    for (index in 1 until view .childCount) {
+                        val nextChild = view.getChildAt(index)
+                        implement(nextChild)
+                    }
+                }
+            }
+            "<=" -> {
+                while(calc(edit.text.toString())!! <= calc(edit2.text.toString())!!) {
+                    for (index in 1 until view .childCount) {
+                        val nextChild = view.getChildAt(index)
+                        implement(nextChild)
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+    private fun runThroughIf(view: ViewGroup) {
+        val blockOfCondition: View = view.getChildAt(0)
+        val edit: EditText = blockOfCondition.findViewById(R.id.editText1)
+        val edit2: EditText = blockOfCondition.findViewById(R.id.editText2)
+        val condition: TextView = blockOfCondition.findViewById(R.id.select_comp)
+        edit.text.toString().filter { !it.isWhitespace() }
+        edit2.text.toString().filter { !it.isWhitespace() }
+        when(condition.text) {
+            "==" -> {
+                if(calc(edit.text.toString()) == calc(edit2.text.toString())) {
+                    for (index in 1 until view .childCount) {
+                        val nextChild = view.getChildAt(index)
+                        implement(nextChild)
+                    }
+                }
+            }
+            "!=" -> {
+                if(calc(edit.text.toString()) != calc(edit2.text.toString())) {
+                    for (index in 1 until view .childCount) {
+                        val nextChild = view.getChildAt(index)
+                        implement(nextChild)
+                    }
+                }
+            }
+            ">" -> {
+                if(calc(edit.text.toString())!! > calc(edit2.text.toString())!!) {
+                    for (index in 1 until view .childCount) {
+                        val nextChild = view.getChildAt(index)
+                        implement(nextChild)
+                    }
+                }
+            }
+            "<" -> {
+                if(calc(edit.text.toString())!! < calc(edit2.text.toString())!!) {
+                    for (index in 1 until view .childCount) {
+                        val nextChild = view.getChildAt(index)
+                        implement(nextChild)
+                    }
+                }
+            }
+            ">=" -> {
+                if(calc(edit.text.toString())!! >= calc(edit2.text.toString())!!) {
+                    for (index in 1 until view .childCount) {
+                        val nextChild = view.getChildAt(index)
+                        implement(nextChild)
+                    }
+                }
+            }
+            "<=" -> {
+                if(calc(edit.text.toString())!! <= calc(edit2.text.toString())!!) {
+                    for (index in 1 until view .childCount) {
+                        val nextChild = view.getChildAt(index)
+                        implement(nextChild)
+                    }
                 }
             }
         }
