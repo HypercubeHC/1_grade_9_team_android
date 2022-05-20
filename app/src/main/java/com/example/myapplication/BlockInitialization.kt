@@ -5,13 +5,10 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
-import android.widget.PopupMenu
-import android.widget.TextView
-import android.widget.Toast
 
-open class block_assign @JvmOverloads constructor(
+open class BlockInitialization @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null
 ) : LinearLayout(context, attrs) {
-    private val view = LayoutInflater.from(context).inflate(R.layout.block_assign, this)
+    private val view = LayoutInflater.from(context).inflate(R.layout.my_listview, this)
 }

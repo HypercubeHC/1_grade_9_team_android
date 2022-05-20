@@ -17,5 +17,11 @@
         android:title="Ввод переменных" />
     <item
         android:id="@+id/constelse"
-        android:title="Else ->" />
+        android:title="If (...) -> Else ->" />
+    <item
+        android:id="@+id/constwhile"
+        android:title="While (...) -> {...}"/>
+    <item
+        android:id="@+id/block_array"
+        android:title="Создать массив"/>
 </menu>

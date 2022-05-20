@@ -9,9 +9,9 @@ import android.widget.PopupMenu
 import android.widget.TextView
 import android.widget.Toast
 
-open class block_scan @JvmOverloads constructor(
+open class BlockArray @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null
 ) : LinearLayout(context, attrs) {
-    private val view = LayoutInflater.from(context).inflate(R.layout.block_scan, this)
+    private val view = LayoutInflater.from(context).inflate(R.layout.block_array, this)
 }
