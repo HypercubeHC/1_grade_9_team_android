@@ -7,14 +7,26 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.*
+import android.widget.Toast
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.myapplication.databinding.ActivityMainBinding
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+
+    private val rotateOpen: Animation by lazy { AnimationUtils.loadAnimation(this, R.anim.rotate_open_animation) }
+    private val rotateClose: Animation by lazy { AnimationUtils.loadAnimation(this, R.anim.rotate_close_animation) }
+    private val fromBottom: Animation by lazy { AnimationUtils.loadAnimation(this, R.anim.from_bottom_animation) }
+    private val toBottom: Animation by lazy { AnimationUtils.loadAnimation(this, R.anim.to_bottom_animation) }
+
+    private var clicked = false
 
     @SuppressLint("WrongViewCast", "ClickableViewAccessibility", "ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,6 +34,38 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
+
+        val bar_button = findViewById(R.id.bar_button) as FloatingActionButton
+        val print_button = findViewById(R.id.print_button) as FloatingActionButton
+        val control_button = findViewById(R.id.control_button) as FloatingActionButton
+        val event_button = findViewById(R.id.event_button) as FloatingActionButton
+        val operator_button = findViewById(R.id.operator_button) as FloatingActionButton
+        val variable_button = findViewById(R.id.variable_button) as FloatingActionButton
+
+        bar_button.setOnClickListener {
+            onAddButtonClicked()
+        }
+        //for showing info about button
+        print_button.setOnClickListener {
+            Toast.makeText(this, "Print button Clicked", Toast.LENGTH_SHORT).show()
+        }
+
+        control_button.setOnClickListener {
+            Toast.makeText(this, "Control button Clicked", Toast.LENGTH_SHORT).show()
+        }
+
+        event_button.setOnClickListener {
+            Toast.makeText(this, "Event button Clicked", Toast.LENGTH_SHORT).show()
+        }
+
+        operator_button.setOnClickListener {
+            Toast.makeText(this, "Operator button Clicked", Toast.LENGTH_SHORT).show()
+        }
+
+        variable_button.setOnClickListener {
+            Toast.makeText(this, "Variable button Clicked", Toast.LENGTH_SHORT).show()
+        }
+
 
         binding.main.setOnDragListener(dragListener)
         val popupMenu2 = PopupMenu(this, binding.button)
@@ -361,5 +405,56 @@ class MainActivity : AppCompatActivity() {
                 }
                 else -> false
             }
+
+
         }
+    private fun onAddButtonClicked() {
+        setVisibility(clicked)
+        setAnimation(clicked)
+        clicked = !clicked
+    }
+    private fun setVisibility(clicked: Boolean) {
+        val print_button = findViewById(R.id.print_button) as FloatingActionButton
+        val control_button = findViewById(R.id.control_button) as FloatingActionButton
+        val event_button = findViewById(R.id.event_button) as FloatingActionButton
+        val operator_button = findViewById(R.id.operator_button) as FloatingActionButton
+        val variable_button = findViewById(R.id.variable_button) as FloatingActionButton
+        if(!clicked) {
+            print_button.visibility = View.VISIBLE
+            control_button.visibility = View.VISIBLE
+            event_button.visibility = View.VISIBLE
+            operator_button.visibility = View.VISIBLE
+            variable_button.visibility = View.VISIBLE
+        } else {
+            print_button.visibility = View.INVISIBLE
+            control_button.visibility = View.INVISIBLE
+            event_button.visibility = View.INVISIBLE
+            operator_button.visibility = View.INVISIBLE
+            variable_button.visibility = View.INVISIBLE
+        }
+    }
+
+    private fun setAnimation(clocked: Boolean) {
+        val bar_button = findViewById(R.id.bar_button) as FloatingActionButton
+        val print_button = findViewById(R.id.print_button) as FloatingActionButton
+        val control_button = findViewById(R.id.control_button) as FloatingActionButton
+        val event_button = findViewById(R.id.event_button) as FloatingActionButton
+        val operator_button = findViewById(R.id.operator_button) as FloatingActionButton
+        val variable_button = findViewById(R.id.variable_button) as FloatingActionButton
+        if(!clicked) {
+            print_button.startAnimation(fromBottom)
+            control_button.startAnimation(fromBottom)
+            event_button.startAnimation(fromBottom)
+            operator_button.startAnimation(fromBottom)
+            variable_button.startAnimation(fromBottom)
+            bar_button.startAnimation(rotateOpen)
+        } else {
+            print_button.startAnimation(toBottom)
+            control_button.startAnimation(toBottom)
+            event_button.startAnimation(toBottom)
+            operator_button.startAnimation(toBottom)
+            variable_button.startAnimation(toBottom)
+            bar_button.startAnimation(rotateClose)
+        }
+    }
 }
