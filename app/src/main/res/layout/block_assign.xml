@@ -3,10 +3,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/assign_test_www"
     android:layout_width="fill_parent"
-    android:layout_height="65dp"
+    android:layout_height="55dp"
     android:orientation="horizontal"
     android:padding="1dip"
     android:background="@drawable/layout_bg">
+
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"

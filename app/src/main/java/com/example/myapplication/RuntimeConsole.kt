@@ -9,6 +9,7 @@ class RuntimeConsole : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_runtime_console)
+        supportActionBar?.hide()
         val clear_btn = findViewById<Button>(R.id.clear_button)
         clear_btn.setOnClickListener{
             Console.clear()

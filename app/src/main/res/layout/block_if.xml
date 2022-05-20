@@ -9,7 +9,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/block_if"
     android:layout_width="fill_parent"
-    android:layout_height="65dp"
+    android:layout_height="55dp"
     android:orientation="horizontal"
     android:padding="1dip"
     android:background="@drawable/layout_bg_purple">
@@ -38,15 +38,15 @@
 
     <TextView
         android:id="@+id/select_comp"
-        android:background="@drawable/layout_bg_with_line"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_centerVertical="true"
         android:layout_marginLeft="195dp"
+        android:background="@drawable/layout_bg_with_line"
+        android:gravity="center"
         android:text="▼"
         android:textColor="@color/black"
         android:textSize="18dp"
-        android:gravity="center"
         android:typeface="sans" />
 
     <EditText
