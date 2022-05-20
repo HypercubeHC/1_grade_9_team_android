@@ -37,10 +37,12 @@ class MainActivity : AppCompatActivity() {
 
         val bar_button = findViewById(R.id.bar_button) as FloatingActionButton
         val print_button = findViewById(R.id.print_button) as FloatingActionButton
-        val control_button = findViewById(R.id.control_button) as FloatingActionButton
-        val event_button = findViewById(R.id.event_button) as FloatingActionButton
-        val operator_button = findViewById(R.id.operator_button) as FloatingActionButton
-        val variable_button = findViewById(R.id.variable_button) as FloatingActionButton
+        val var_button = findViewById(R.id.var_button) as FloatingActionButton
+        val if_button = findViewById(R.id.if_button) as FloatingActionButton
+        val if_else_button = findViewById(R.id.if_else_button) as FloatingActionButton
+        val assign_button = findViewById(R.id.assign_button) as FloatingActionButton
+        val while_button = findViewById(R.id.while_button) as FloatingActionButton
+        val array_button = findViewById(R.id.array_button) as FloatingActionButton
 
         bar_button.setOnClickListener {
             onAddButtonClicked()
@@ -50,20 +52,28 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Print button Clicked", Toast.LENGTH_SHORT).show()
         }
 
-        control_button.setOnClickListener {
-            Toast.makeText(this, "Control button Clicked", Toast.LENGTH_SHORT).show()
+        while_button.setOnClickListener {
+            Toast.makeText(this, "While button Clicked", Toast.LENGTH_SHORT).show()
         }
 
-        event_button.setOnClickListener {
-            Toast.makeText(this, "Event button Clicked", Toast.LENGTH_SHORT).show()
+        if_button.setOnClickListener {
+            Toast.makeText(this, "If button Clicked", Toast.LENGTH_SHORT).show()
         }
 
-        operator_button.setOnClickListener {
-            Toast.makeText(this, "Operator button Clicked", Toast.LENGTH_SHORT).show()
+        if_else_button.setOnClickListener {
+            Toast.makeText(this, "If else button Clicked", Toast.LENGTH_SHORT).show()
         }
 
-        variable_button.setOnClickListener {
-            Toast.makeText(this, "Variable button Clicked", Toast.LENGTH_SHORT).show()
+        assign_button.setOnClickListener {
+            Toast.makeText(this, "Assign button Clicked", Toast.LENGTH_SHORT).show()
+        }
+
+        var_button.setOnClickListener {
+            Toast.makeText(this, "Var button Clicked", Toast.LENGTH_SHORT).show()
+        }
+
+        array_button.setOnClickListener {
+            Toast.makeText(this, "Array button Clicked", Toast.LENGTH_SHORT).show()
         }
 
 
@@ -414,46 +424,59 @@ class MainActivity : AppCompatActivity() {
         clicked = !clicked
     }
     private fun setVisibility(clicked: Boolean) {
+        val bar_button = findViewById(R.id.bar_button) as FloatingActionButton
         val print_button = findViewById(R.id.print_button) as FloatingActionButton
-        val control_button = findViewById(R.id.control_button) as FloatingActionButton
-        val event_button = findViewById(R.id.event_button) as FloatingActionButton
-        val operator_button = findViewById(R.id.operator_button) as FloatingActionButton
-        val variable_button = findViewById(R.id.variable_button) as FloatingActionButton
+        val var_button = findViewById(R.id.var_button) as FloatingActionButton
+        val if_button = findViewById(R.id.if_button) as FloatingActionButton
+        val if_else_button = findViewById(R.id.if_else_button) as FloatingActionButton
+        val assign_button = findViewById(R.id.assign_button) as FloatingActionButton
+        val while_button = findViewById(R.id.while_button) as FloatingActionButton
+        val array_button = findViewById(R.id.array_button) as FloatingActionButton
         if(!clicked) {
             print_button.visibility = View.VISIBLE
-            control_button.visibility = View.VISIBLE
-            event_button.visibility = View.VISIBLE
-            operator_button.visibility = View.VISIBLE
-            variable_button.visibility = View.VISIBLE
+            var_button.visibility = View.VISIBLE
+            if_button.visibility = View.VISIBLE
+            if_else_button.visibility = View.VISIBLE
+            assign_button.visibility = View.VISIBLE
+            while_button.visibility = View.VISIBLE
+            array_button.visibility = View.VISIBLE
         } else {
             print_button.visibility = View.INVISIBLE
-            control_button.visibility = View.INVISIBLE
-            event_button.visibility = View.INVISIBLE
-            operator_button.visibility = View.INVISIBLE
-            variable_button.visibility = View.INVISIBLE
+            var_button.visibility = View.INVISIBLE
+            if_button.visibility = View.INVISIBLE
+            if_else_button.visibility = View.INVISIBLE
+            assign_button.visibility = View.INVISIBLE
+            while_button.visibility = View.INVISIBLE
+            array_button.visibility = View.INVISIBLE
         }
     }
 
     private fun setAnimation(clocked: Boolean) {
         val bar_button = findViewById(R.id.bar_button) as FloatingActionButton
         val print_button = findViewById(R.id.print_button) as FloatingActionButton
-        val control_button = findViewById(R.id.control_button) as FloatingActionButton
-        val event_button = findViewById(R.id.event_button) as FloatingActionButton
-        val operator_button = findViewById(R.id.operator_button) as FloatingActionButton
-        val variable_button = findViewById(R.id.variable_button) as FloatingActionButton
+        val var_button = findViewById(R.id.var_button) as FloatingActionButton
+        val if_button = findViewById(R.id.if_button) as FloatingActionButton
+        val if_else_button = findViewById(R.id.if_else_button) as FloatingActionButton
+        val assign_button = findViewById(R.id.assign_button) as FloatingActionButton
+        val while_button = findViewById(R.id.while_button) as FloatingActionButton
+        val array_button = findViewById(R.id.array_button) as FloatingActionButton
         if(!clicked) {
             print_button.startAnimation(fromBottom)
-            control_button.startAnimation(fromBottom)
-            event_button.startAnimation(fromBottom)
-            operator_button.startAnimation(fromBottom)
-            variable_button.startAnimation(fromBottom)
+            var_button.startAnimation(fromBottom)
+            if_button.startAnimation(fromBottom)
+            if_else_button.startAnimation(fromBottom)
+            assign_button.startAnimation(fromBottom)
+            while_button.startAnimation(fromBottom)
+            array_button.startAnimation(fromBottom)
             bar_button.startAnimation(rotateOpen)
         } else {
             print_button.startAnimation(toBottom)
-            control_button.startAnimation(toBottom)
-            event_button.startAnimation(toBottom)
-            operator_button.startAnimation(toBottom)
-            variable_button.startAnimation(toBottom)
+            var_button.startAnimation(toBottom)
+            if_button.startAnimation(toBottom)
+            if_else_button.startAnimation(toBottom)
+            assign_button.startAnimation(toBottom)
+            while_button.startAnimation(toBottom)
+            array_button.startAnimation(toBottom)
             bar_button.startAnimation(rotateClose)
         }
     }

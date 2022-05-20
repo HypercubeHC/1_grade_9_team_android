@@ -2,21 +2,22 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#FF312E43"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <ScrollView
         android:id="@+id/scroll"
-        android:layout_width="414dp"
-        android:layout_height="731dp"
+        android:layout_width="411dp"
+        android:layout_height="575dp"
         android:contentDescription="@string/canvas_description"
         android:fillViewport="true"
-        app:layout_constraintBottom_toTopOf="@+id/buttons"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints">
 
         <LinearLayout
@@ -25,7 +26,8 @@
             android:layout_height="wrap_content"
             android:background="#312e43"
             android:orientation="vertical"
-            tools:context=".MainActivity"></LinearLayout>
+            tools:context=".MainActivity">
+        </LinearLayout>
     </ScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -44,85 +46,75 @@
         app:tint="@null"
         tools:ignore="MissingConstraints" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/print_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:backgroundTint="#6DB9DA"
-        android:clickable="true"
-        android:focusable="true"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/bar_button"
-        app:layout_constraintEnd_toEndOf="@+id/bar_button"
-        app:maxImageSize="56dp"
-        app:srcCompat="@drawable/ic_blocksolo_act_print"
-        app:tint="@null"
-        tools:ignore="MissingConstraints" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/event_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:backgroundTint="#9997E1"
-        android:clickable="true"
-        android:focusable="true"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/print_button"
-        app:layout_constraintEnd_toEndOf="@+id/print_button"
-        app:maxImageSize="56dp"
-        app:srcCompat="@drawable/ic_blocksolo_act_event"
-        app:tint="@null"
-        tools:ignore="MissingConstraints" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/control_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:backgroundTint="#447388"
-        android:clickable="true"
-        android:focusable="true"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/event_button"
-        app:layout_constraintEnd_toEndOf="@+id/event_button"
-        app:maxImageSize="56dp"
-        app:srcCompat="@drawable/ic_blocksolo_act_control"
-        app:tint="@null"
-        tools:ignore="MissingConstraints" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/operator_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:backgroundTint="#514FC3"
-        android:clickable="true"
-        android:focusable="true"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/control_button"
-        app:layout_constraintEnd_toEndOf="@+id/control_button"
-        app:maxImageSize="56dp"
-        app:srcCompat="@drawable/ic_blocksolo_act_operator"
-        app:tint="@null"
-        tools:ignore="MissingConstraints" />
+    <!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/event_button"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="24dp"-->
+<!--        android:backgroundTint="#9997E1"-->
+<!--        android:clickable="true"-->
+<!--        android:focusable="true"-->
+<!--        android:visibility="visible"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/print_button"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/print_button"-->
+<!--        app:maxImageSize="56dp"-->
+<!--        app:srcCompat="@drawable/ic_blocksolo_act_event"-->
+<!--        app:tint="@null"-->
+<!--        tools:ignore="MissingConstraints" />-->
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/variable_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:backgroundTint="#8442BE"
-        android:clickable="true"
-        android:focusable="true"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/operator_button"
-        app:layout_constraintEnd_toEndOf="@+id/operator_button"
-        app:maxImageSize="56dp"
-        app:srcCompat="@drawable/ic_blocksolo_act_var"
-        app:tint="@null"
-        tools:ignore="MissingConstraints" />
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/control_button"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="24dp"-->
+<!--        android:backgroundTint="#447388"-->
+<!--        android:clickable="true"-->
+<!--        android:focusable="true"-->
+<!--        android:visibility="visible"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/event_button"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/event_button"-->
+<!--        app:maxImageSize="56dp"-->
+<!--        app:srcCompat="@drawable/ic_blocksolo_act_control"-->
+<!--        app:tint="@null"-->
+<!--        tools:ignore="MissingConstraints" />-->
+
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/operator_button"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="24dp"-->
+<!--        android:backgroundTint="#514FC3"-->
+<!--        android:clickable="true"-->
+<!--        android:focusable="true"-->
+<!--        android:visibility="visible"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/control_button"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/control_button"-->
+<!--        app:maxImageSize="56dp"-->
+<!--        app:srcCompat="@drawable/ic_blocksolo_act_operator"-->
+<!--        app:tint="@null"-->
+<!--        tools:ignore="MissingConstraints" />-->
+
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/variable_button"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="24dp"-->
+<!--        android:backgroundTint="#8442BE"-->
+<!--        android:clickable="true"-->
+<!--        android:focusable="true"-->
+<!--        android:visibility="visible"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/operator_button"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/operator_button"-->
+<!--        app:maxImageSize="56dp"-->
+<!--        app:srcCompat="@drawable/ic_blocksolo_act_var"-->
+<!--        app:tint="@null"-->
+<!--        tools:ignore="MissingConstraints" />-->
+
+
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
@@ -155,6 +147,125 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints"
         tools:visibility="visible" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/print_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#6DB9DA"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/bar_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="56dp"
+        app:srcCompat="@drawable/ic_print_icon"
+        app:tint="@null"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/array_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#6DB9DA"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/print_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="56dp"
+        app:srcCompat="@drawable/ic_array_icon"
+        app:tint="@null"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/while_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#6DB9DA"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/array_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="56dp"
+        app:srcCompat="@drawable/ic_while_icon"
+        app:tint="@null"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/if_else_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#6DB9DA"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/while_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="56dp"
+        app:srcCompat="@drawable/ic_if_else_icon"
+        app:tint="@null"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/if_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#6DB9DA"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/if_else_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="56dp"
+        app:srcCompat="@drawable/ic_if_icon"
+        app:tint="@null"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/assign_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#6DB9DA"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/if_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="56dp"
+        app:srcCompat="@drawable/ic_assign_icon"
+        app:tint="@null"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/var_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#6DB9DA"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/assign_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="56dp"
+        app:srcCompat="@drawable/ic_var_icon"
+        app:tint="@null"
+        tools:ignore="MissingConstraints" />
 
     <!--    <ScrollView-->
     <!--        android:id="@+id/scroll"-->
