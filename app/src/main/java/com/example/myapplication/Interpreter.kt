@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.TextView
 import com.jraska.console.Console
 import android.os.AsyncTask
+import java.lang.Exception
 import java.util.*
 
 class Interpreter(private val userCode: MutableList<View> = mutableListOf()) :
@@ -21,6 +22,8 @@ class Interpreter(private val userCode: MutableList<View> = mutableListOf()) :
         const val IF_ELSE_BLOCK = 2131230816
         const val WHILE_BLOCK = 2131230817
     }
+
+    val var_name_regex = "[a-zA-Z]+[a-zA-Z_]*"
 
     private var variables = mutableSetOf<String>()
     private var valuesOfVariables = mutableMapOf<String, Double>()
@@ -47,7 +50,7 @@ class Interpreter(private val userCode: MutableList<View> = mutableListOf()) :
                 val edit: EditText = view.findViewById(R.id.editText2)
                 val string: String = edit.text.toString().filter { !it.isWhitespace() }
                 Console.writeLine("String $string")
-                val list_variables = Regex("[a-z]").findAll(string)
+                val list_variables = Regex(var_name_regex).findAll(string)
                 list_variables.forEach { variable ->
                     if (listArray[variable.value] == null) {
                         Console.writeLine("variable: ${variable.value}")
@@ -72,8 +75,13 @@ class Interpreter(private val userCode: MutableList<View> = mutableListOf()) :
                     listArray[variable]?.set(result!!.toInt(), calc(value)!!)
                 }*/
 
-
-                val result = calc(value)
+                var result: Double?
+                try {
+                    result = calc(value)
+                } catch (e: Exception) {
+                    Console.writeLine("Incorrect data or unknown variable in Assign block")
+                    result = null
+                }
                 if (result != null) {
                     valuesOfVariables[variable] = result.toDouble()
                 }
@@ -94,15 +102,22 @@ class Interpreter(private val userCode: MutableList<View> = mutableListOf()) :
             OUTPUT_BLOCK -> {
                 val edit: EditText = view.findViewById(R.id.editText4)
                 val string: String = edit.text.toString().filter { !it.isWhitespace() }
-                val list_variables = Regex("[a-z]").findAll(string)
+                val list_variables = Regex(var_name_regex).findAll(string)
                 list_variables.forEach { variable ->
-                    Console.writeLine("Debug ${variable.value} - ${valuesOfVariables[variable.value]}")
+                    Console.writeLine("${variable.value} - ${valuesOfVariables[variable.value]}")
                 }
             }
 
-            /*INPUT_BLOCK -> {
+            INPUT_BLOCK -> {
+                val edit: EditText = view.findViewById(R.id.editText5)
+                val string: String = edit.text.toString().filter { !it.isWhitespace() }
+                val list_variables = Regex(var_name_regex).findAll(string)
 
-            }*/
+                list_variables.forEach { variable ->
+                    Console.writeLine("${variable.value} - ${valuesOfVariables[variable.value]}")
+                }
+            }
+
 
             ARRAY_BLOCK -> {
                 val edit: EditText = view.findViewById(R.id.editText1)//название массива
