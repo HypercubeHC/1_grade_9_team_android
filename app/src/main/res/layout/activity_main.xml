@@ -163,7 +163,7 @@
         app:layout_constraintBottom_toTopOf="@+id/print_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:maxImageSize="56dp"
-        app:srcCompat="@drawable/ic_array_icon"
+        app:srcCompat="@drawable/ic_input_icon"
         app:tint="@null"
         tools:ignore="MissingConstraints" />
 

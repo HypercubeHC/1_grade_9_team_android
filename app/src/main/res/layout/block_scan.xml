@@ -3,7 +3,7 @@
     android:id="@+id/scan"
     android:layout_width="fill_parent"
     android:layout_height="65dp"
-    android:background="@drawable/layout_bg_cian"
+    android:background="@drawable/layout_bg_for_input"
     android:orientation="horizontal"
     android:padding="1dip">
 
@@ -23,7 +23,7 @@
         android:layout_height="35dp"
         android:layout_centerVertical="true"
         android:layout_marginLeft="220dp"
-        android:background="@drawable/layout_bg_white"
+        android:background="@drawable/layout_bg_input"
         android:ems="10"
         android:inputType="textPersonName"
         android:textAlignment="center"
