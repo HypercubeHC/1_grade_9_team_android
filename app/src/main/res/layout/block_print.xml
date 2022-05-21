@@ -23,7 +23,7 @@
         android:layout_height="35dp"
         android:layout_centerVertical="true"
         android:layout_marginLeft="220dp"
-        android:background="@drawable/layout_bg_white"
+        android:background="@drawable/layout_bg_for_print"
         android:ems="10"
         android:inputType="textPersonName"
         android:textAlignment="center"

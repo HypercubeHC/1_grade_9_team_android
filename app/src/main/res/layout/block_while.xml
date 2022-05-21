@@ -5,14 +5,14 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="1dip"
-    android:background="@drawable/layout_bg_purple">
+    android:background="@drawable/layout_bg_for_while">
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/block_while"
         android:layout_width="fill_parent"
         android:layout_height="65dp"
         android:orientation="horizontal"
         android:padding="1dip"
-        android:background="@drawable/layout_bg_purple">
+        android:background="@drawable/layout_bg_for_while">
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
@@ -29,7 +29,7 @@
             android:layout_height="35dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="80dp"
-            android:background="@drawable/layout_bg_white"
+            android:background="@drawable/layout_bg_while"
             android:ems="10"
             android:inputType="textPersonName"
             android:textAlignment="center"
@@ -38,13 +38,13 @@
 
         <TextView
             android:id="@+id/select_comp"
-            android:background="@drawable/layout_bg_with_line"
+            android:background="@drawable/layout_bg_while"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="215dp"
             android:text="▼"
-            android:textColor="@color/black"
+            android:textColor="@color/purple_500"
             android:textSize="18dp"
             android:gravity="center"
             android:typeface="sans" />
@@ -55,7 +55,7 @@
             android:layout_height="35dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="250dp"
-            android:background="@drawable/layout_bg_white"
+            android:background="@drawable/layout_bg_while"
             android:ems="10"
             android:inputType="textPersonName"
             android:textAlignment="center"
