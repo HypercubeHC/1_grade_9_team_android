@@ -10,10 +10,10 @@
     <ScrollView
         android:id="@+id/scroll"
         android:layout_width="match_parent"
-        android:layout_height="731dp"
+        android:layout_height="0dp"
         android:contentDescription="@string/canvas_description"
         android:fillViewport="true"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/print_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -26,8 +26,7 @@
             android:layout_height="wrap_content"
             android:background="#312e43"
             android:orientation="vertical"
-            tools:context=".MainActivity">
-        </LinearLayout>
+            tools:context=".MainActivity"></LinearLayout>
     </ScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -132,20 +131,6 @@
         app:srcCompat="@drawable/ic_blocksolo_ic_play"
         app:tint="@null"
         tools:ignore="MissingConstraints,SpeakableTextPresentCheck"
-        tools:visibility="visible" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="17dp"
-        android:backgroundTint="#8442bd"
-        android:text="Create"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
         tools:visibility="visible" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
