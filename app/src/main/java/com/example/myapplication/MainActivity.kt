@@ -103,7 +103,7 @@ class MainActivity : AppCompatActivity() {
             onInputClick(listEdit)
         }
 
-        binding.floatingActionButton.setOnClickListener {
+        binding.runButton.setOnClickListener {
             val layout: LinearLayout = binding.main
             val count = layout.childCount
             var v: View?
