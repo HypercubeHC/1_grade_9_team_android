@@ -49,11 +49,11 @@ class Interpreter(private val userCode: MutableList<View> = mutableListOf()) :
             INITIALIZATION_BLOCK -> {
                 val edit: EditText = view.findViewById(R.id.editText2)
                 val string: String = edit.text.toString().filter { !it.isWhitespace() }
-                Console.writeLine("String $string")
+//                Console.writeLine("String $string")
                 val list_variables = Regex(var_name_regex).findAll(string)
                 list_variables.forEach { variable ->
                     if (listArray[variable.value] == null) {
-                        Console.writeLine("variable: ${variable.value}")
+//                        Console.writeLine("variable: ${variable.value}")
                         valuesOfVariables[variable.value] = 0.0
                     }
                 }

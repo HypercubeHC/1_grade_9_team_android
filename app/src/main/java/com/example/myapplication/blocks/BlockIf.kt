@@ -1,6 +1,5 @@
-package com.example.myapplication
+package com.example.myapplication.blocks
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -8,7 +7,7 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.PopupMenu
 import android.widget.TextView
-import android.widget.Toast
+import com.example.myapplication.R
 
 open class BlockIf @JvmOverloads constructor(
     context: Context,
